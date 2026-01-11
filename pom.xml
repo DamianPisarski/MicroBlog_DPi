@@ -89,14 +89,14 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.10.Final</version>
+            <version>5.6.15.Final</version>
         </dependency>
 
         <!-- Hibernate EntityManager -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.2.10.Final</version>
+            <version>5.6.15.Final</version>
         </dependency>
 
         <!-- JPA API -->
@@ -163,6 +163,28 @@
     <scope>test</scope>
 </dependency>
 
+<!-- JUnit 4 dla Lab6 -->
+<dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.2</version>
+    <scope>test</scope>
+</dependency>
+
+
+<!-- JAXB API -->
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.3.1</version>
+</dependency>
+
+<!-- JAXB Runtime (implementacja) -->
+<dependency>
+    <groupId>org.glassfish.jaxb</groupId>
+    <artifactId>jaxb-runtime</artifactId>
+    <version>2.3.3</version>
+</dependency>
 
         
     </dependencies>
@@ -201,7 +223,13 @@
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.3.0</version>
+                <configuration>
+              <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
+            </configuration>
             </plugin>
+            
+
+
         </plugins>
     </build>
 
